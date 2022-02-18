@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.example.demo.entity.enums.ItemType;
 import com.example.demo.entity.enums.Rarity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Items {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,10 @@ public class Items {
 
     @ManyToOne
     @JoinColumn(name = "gear_id")
-    Gear type;
+    Gear gear;
+
+    @Enumerated(value = EnumType.STRING)
+    ItemType type;
 
     @Enumerated(value = EnumType.STRING)
     Rarity rarity;
