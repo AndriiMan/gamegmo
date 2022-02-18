@@ -29,6 +29,4 @@ public class Item {
 
     @Enumerated(value = EnumType.STRING)
     Rarity rarity;
-
-//ItemStats ItemStats
 }

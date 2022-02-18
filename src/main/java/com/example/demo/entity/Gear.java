@@ -22,9 +22,6 @@ public class Gear {
     @JoinColumn(name = "player_id")
     Player player;
 
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "gear")
     List<Item> items;
-
-
 }

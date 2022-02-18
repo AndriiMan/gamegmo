@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,11 +23,10 @@ public class Guild {
     String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "guild")
-    Set<Player> members;
+    List<Player> members;
 
     String location;
 
     @Enumerated(value = EnumType.STRING)
     Ranks ranks;
-
 }

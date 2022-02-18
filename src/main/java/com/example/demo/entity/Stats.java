@@ -1,9 +1,6 @@
 package com.example.demo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,17 +9,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class Stats {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    @Column(name = "strength")
-    byte strength;
+    private byte strength;
+    private byte dexterity;
+    private byte wisdom;
+    private byte intelligence;
+    private byte charisma;
 
-    byte dexterity;
-    byte wisdom;
-    byte intelligence;
-    byte charisma;
+    @OneToOne(mappedBy = "stats")
+    private Player player;
 }
