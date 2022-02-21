@@ -1,5 +1,7 @@
 package com.example.demo.entity.enums;
 
+import java.util.Random;
+
 public enum ItemType {
     HEAD,
     TORSO,
@@ -7,6 +9,10 @@ public enum ItemType {
     SHOULDERS,
     ARMS,
     SHIELD,
-    MAGIC_ITEM
+    MAGIC_ITEM;
 
+    public static ItemType getRandomItemType() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length)];
+    }
 }

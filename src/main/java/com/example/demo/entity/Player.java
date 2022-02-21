@@ -1,9 +1,6 @@
 package com.example.demo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.persistence.*;
@@ -13,7 +10,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
+@EqualsAndHashCode
 public class Player {
 
     @Id
@@ -22,7 +21,7 @@ public class Player {
 
     private String name;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne()
     @JoinColumn(name = "guild_id")
     private Guild guild;
 

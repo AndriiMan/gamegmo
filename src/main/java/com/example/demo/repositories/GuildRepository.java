@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GuildRepository extends JpaRepository<Guild, Long> {
-
+    Guild findByName(String name);
 }

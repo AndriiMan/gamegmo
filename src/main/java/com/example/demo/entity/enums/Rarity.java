@@ -1,5 +1,7 @@
 package com.example.demo.entity.enums;
 
+import java.util.Random;
+
 public enum Rarity {
     COMMON,
     UNCOMMON,
@@ -7,5 +9,10 @@ public enum Rarity {
     LEGENDARY,
     MYTHICAL,
     IMMORTAL,
-    ANCIENT
+    ANCIENT;
+
+    public static Rarity getRandomRarity() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length)];
+    }
 }
