@@ -18,15 +18,15 @@ public class Guild {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String name;
+    private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "guild")
-    List<Player> members;
+    private List<Player> members;
 
-    String location;
+    private String location;
 
     @Enumerated(value = EnumType.STRING)
-    Ranks ranks;
+    private Ranks ranks;
 }

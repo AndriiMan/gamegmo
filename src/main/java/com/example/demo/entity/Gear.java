@@ -16,12 +16,12 @@ import java.util.List;
 public class Gear {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "player_id")
-    Player player;
+    private Player player;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "gear")
-    List<Item> items;
+    private List<Item> items;
 }

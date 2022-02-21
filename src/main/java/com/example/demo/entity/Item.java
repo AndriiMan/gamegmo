@@ -18,15 +18,15 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "gear_id")
-    Gear gear;
+    private Gear gear;
 
     @Enumerated(value = EnumType.STRING)
-    ItemType type;
+    private ItemType type;
 
     @Enumerated(value = EnumType.STRING)
-    Rarity rarity;
+    private Rarity rarity;
 }

@@ -4,9 +4,7 @@ import com.example.demo.entity.*;
 import com.example.demo.entity.enums.ItemType;
 import com.example.demo.entity.enums.Ranks;
 import com.example.demo.entity.enums.Rarity;
-import com.example.demo.repositories.GearRepository;
 import com.example.demo.repositories.PlayerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +16,7 @@ import java.util.List;
 public class BootStrap {
 
     @Bean
-    CommandLineRunner initDatabase(@Autowired PlayerRepository playerRepository, @Autowired GearRepository gearRepository) {
+    CommandLineRunner initDatabase(PlayerRepository playerRepository) {
         Player player = new Player();
         player.setName("FirstPlayer");
 
@@ -58,8 +56,6 @@ public class BootStrap {
 
         return args -> {
             if (playerRepository.count() == 0) {
-                //gearRepository.save(gear);
-
                 System.out.println("Preloading " + playerRepository.save(player));
             }
         };
