@@ -1,33 +1,34 @@
 package com.example.demo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
+@EqualsAndHashCode
 public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String name;
-    @ManyToOne
+    private String name;
+
+    @ManyToOne()
     @JoinColumn(name = "guild_id")
-    Guild guild;
+    private Guild guild;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "player")
-    Gear gear;
+    private List<Gear> gear;
 
-    @ManyToOne
-    @JoinColumn(name = "stats_id")
-    Stats stats;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "stats_id", referencedColumnName = "id")
+    private Stats stats;
 }

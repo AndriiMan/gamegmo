@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,17 +16,12 @@ import javax.persistence.*;
 public class Gear {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "player_id")
-    Player player;
+    private Player player;
 
-//  Item head
-//- Items torso
-//- Item legs
-//- Item shoulders
-//- Item Arms
-//- Item Shield
-//- Item magicItem
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "gear")
+    private List<Item> items;
 }
